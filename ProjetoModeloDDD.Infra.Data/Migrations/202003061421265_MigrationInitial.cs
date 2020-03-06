@@ -8,13 +8,13 @@
         public override void Up()
         {
             CreateTable(
-                "dbo.Clientes",
+                "dbo.Cliente",
                 c => new
                     {
                         ClienteId = c.Int(nullable: false, identity: true),
-                        Nome = c.String(),
-                        Sobrenome = c.String(),
-                        Email = c.String(),
+                        Nome = c.String(maxLength: 100, unicode: false),
+                        Sobrenome = c.String(maxLength: 100, unicode: false),
+                        Email = c.String(maxLength: 100, unicode: false),
                         DataCadasto = c.DateTime(nullable: false),
                         Ativo = c.Boolean(nullable: false),
                     })
@@ -24,7 +24,7 @@
         
         public override void Down()
         {
-            DropTable("dbo.Clientes");
+            DropTable("dbo.Cliente");
         }
     }
 }

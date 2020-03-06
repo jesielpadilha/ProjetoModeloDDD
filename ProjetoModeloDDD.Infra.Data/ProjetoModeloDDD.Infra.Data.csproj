@@ -10,11 +10,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ProjetoModeloDDD.Infra.Data</RootNamespace>
     <AssemblyName>ProjetoModeloDDD.Infra.Data</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -52,9 +53,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\ProjetoModeloContext.cs" />
-    <Compile Include="Migrations\202003052352103_MigrationInitial.cs" />
-    <Compile Include="Migrations\202003052352103_MigrationInitial.designer.cs">
-      <DependentUpon>202003052352103_MigrationInitial.cs</DependentUpon>
+    <Compile Include="EntityConfig\ClienteConfiguration.cs" />
+    <Compile Include="Migrations\202003061421265_MigrationInitial.cs" />
+    <Compile Include="Migrations\202003061421265_MigrationInitial.designer.cs">
+      <DependentUpon>202003061421265_MigrationInitial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,12 +72,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="EntityConfig\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003052352103_MigrationInitial.resx">
-      <DependentUpon>202003052352103_MigrationInitial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003061421265_MigrationInitial.resx">
+      <DependentUpon>202003061421265_MigrationInitial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,6 +1,8 @@
 ﻿using ProjetoModeloDDD.Domain.Entities;
+using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Linq;
 
 namespace ProjetoModeloDDD.Infra.Data.Context
 {
@@ -15,13 +17,36 @@ namespace ProjetoModeloDDD.Infra.Data.Context
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Configurations.Remove<PluralizingTableNameConvention>();
-            modelBuilder.Configurations.Remove<OneToManyCascadeDeleteConvention>();
-            modelBuilder.Configurations.Remove<ManyToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
             modelBuilder.Properties()
-                .Where(p => p.Name == p.ReplectedType.Name + "Id")
+                .Where(p => p.Name == p.ReflectedType.Name + "Id")
                 .Configure(p => p.IsKey());
+
+            modelBuilder.Properties<string>()
+                .Configure(p => p.HasColumnType("varchar"));
+
+            modelBuilder.Properties<string>()
+                .Configure(p => p.HasMaxLength(100));
+        }
+
+        public override int SaveChanges()
+        {
+            foreach(var entry in ChangeTracker.Entries().Where(e => e.Entity.GetType().GetProperty("DataCadastro") != null))
+            {
+                if(entry.State == EntityState.Added)
+                {
+                    entry.Property("DataCadastro").CurrentValue = DateTime.Now;
+                }
+                if (entry.State == EntityState.Modified)
+                {
+                    entry.Property("DataCadastro").IsModified = false;
+                }
+            }
+
+            return base.SaveChanges();
         }
 
         public DbSet<Cliente> Clientes { get; set; }
