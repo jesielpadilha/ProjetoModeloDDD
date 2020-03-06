@@ -1,0 +1,10 @@
+/.vs
+/packages
+/ProjetoModeloDDD.MVC/bin
+/ProjetoModeloDDD.MVC/obj
+/ProjetoModeloDDD.Application/bin
+/ProjetoModeloDDD.Application/obj
+/ProjetoModeloDDD.Domain/bin
+/ProjetoModeloDDD.Domain/obj
+/ProjetoModeloDDD.Infra.Data/bin
+/ProjetoModeloDDD.Infra.Data/obj
