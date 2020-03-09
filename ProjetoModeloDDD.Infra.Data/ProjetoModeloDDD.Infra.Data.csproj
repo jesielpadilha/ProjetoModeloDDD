@@ -54,12 +54,24 @@
   <ItemGroup>
     <Compile Include="Context\ProjetoModeloContext.cs" />
     <Compile Include="EntityConfig\ClienteConfiguration.cs" />
-    <Compile Include="Migrations\202003061421265_MigrationInitial.cs" />
-    <Compile Include="Migrations\202003061421265_MigrationInitial.designer.cs">
-      <DependentUpon>202003061421265_MigrationInitial.cs</DependentUpon>
+    <Compile Include="EntityConfig\ProdutoConfiguration.cs" />
+    <Compile Include="Migrations\202003081230460_MigrationInitial.cs" />
+    <Compile Include="Migrations\202003081230460_MigrationInitial.designer.cs">
+      <DependentUpon>202003081230460_MigrationInitial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003081249274_AddEntityProduto.cs" />
+    <Compile Include="Migrations\202003081249274_AddEntityProduto.designer.cs">
+      <DependentUpon>202003081249274_AddEntityProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003081453370_AlterPropertyEntityCliente.cs" />
+    <Compile Include="Migrations\202003081453370_AlterPropertyEntityCliente.designer.cs">
+      <DependentUpon>202003081453370_AlterPropertyEntityCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ClienteRepository.cs" />
+    <Compile Include="Repositories\ProdutoRepository.cs" />
+    <Compile Include="Repositories\RepositoryBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjetoModeloDDD.Domain\ProjetoModeloDDD.Domain.csproj">
@@ -71,12 +83,16 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003061421265_MigrationInitial.resx">
-      <DependentUpon>202003061421265_MigrationInitial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003081230460_MigrationInitial.resx">
+      <DependentUpon>202003081230460_MigrationInitial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003081249274_AddEntityProduto.resx">
+      <DependentUpon>202003081249274_AddEntityProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003081453370_AlterPropertyEntityCliente.resx">
+      <DependentUpon>202003081453370_AlterPropertyEntityCliente.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

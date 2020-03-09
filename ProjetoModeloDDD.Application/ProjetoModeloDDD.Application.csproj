@@ -32,7 +32,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AppServiceBase.cs" />
+    <Compile Include="ClienteAppService.cs" />
+    <Compile Include="Interface\IAppServiceBase.cs" />
+    <Compile Include="Interface\IClienteAppService.cs" />
+    <Compile Include="Interface\IProdutoAppService.cs" />
+    <Compile Include="ProdutoAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjetoModeloDDD.Domain\ProjetoModeloDDD.Domain.csproj">
+      <Project>{0badffa1-ba57-4edc-8100-819c0e6fdea0}</Project>
+      <Name>ProjetoModeloDDD.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
